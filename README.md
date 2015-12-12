@@ -22,6 +22,7 @@ Make sure the following is in your environment:
 # Configuration
 
 Configuration involves these steps:
+
 1. Create application credentials that allow your code to access the google nodejs APIs.
 2. Authorize a user using Oauth2 to use the application to access gmail.
 3. Add the appropriate configuration items to `.juttle/config.{js,json}`
