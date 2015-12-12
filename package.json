@@ -1,0 +1,20 @@
+{
+  "name": "juttle-gmail-backend",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+      "batchelor": "^2.0.1",
+      "bluebird": "^3.0.5",
+      "googleapis": "^2.1.6",
+      "google-auth-library": "^0.9.7",
+      "moment": "^2.10.6",
+      "underscore": "^1.8.3"
+  }
+}
+
