@@ -1,6 +1,6 @@
-# gmail-backend
+# Juttle Gmail Adapter
 
-Gmail backend for juttle
+Gmail adapter for juttle
 
 This uses the
 [nodejs API for google](https://www.npmjs.com/package/googleapis) to
@@ -56,7 +56,7 @@ You'll use this file in the next step.
 
 You need to create an oauth2 token that allows this program to read your email on your behalf.
 
-To do this, run `node create_oauth_token.js` from the gmail-backend directory.
+To do this, run `node create_oauth_token.js` from the juttle-gmail-adapter directory.
 
 This will provide a json config block to add to your `.juttle/config.{js,json}` file.
 
@@ -69,8 +69,8 @@ assocated with the authenticated user, to verify that the token was created succ
 
 ```
 {
-  "backends": {
-    "juttle-gmail-backend": {
+  "adapters": {
+    "juttle-gmail-adapter": {
       "client-credentials": {
         "installed": {
           "client_id": "--your-client-id--",
@@ -97,22 +97,22 @@ assocated with the authenticated user, to verify that the token was created succ
 ```
 
 Add this configuration to your `.juttle/config.{js,json}` file. If you
-have an existing "backends" section, for example:
+have an existing "adapters" section, for example:
 
 ```
 {
-  "backends": {
-    "juttle-twitter-backend": {...}
+  "adapters": {
+    "juttle-twitter-adapter": {...}
   }
 }
 ```
 
-Add the juttle-gmail-backend section as a peer item below "backends":
+Add the juttle-gmail-adapter section as a peer item below "adapters":
 ```
 {
-  "backends": {
-    "juttle-twitter-backend": {...},
-    "juttle-gmail-backend": {...}
+  "adapters": {
+    "juttle-twitter-adapter": {...},
+    "juttle-gmail-adapter": {...}
   }
 }
 ```

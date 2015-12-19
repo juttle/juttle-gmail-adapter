@@ -89,8 +89,8 @@ function storeToken(credentials, token) {
 
     console.log('Add the following json block to your .juttle/config.{js,json} file:');
     var juttle_config = {
-        backends: {
-            "juttle-gmail-backend": {
+        adapters: {
+            "juttle-gmail-adapter": {
                 "client-credentials": credentials,
                 "oauth2-token": token,
             }
@@ -99,7 +99,7 @@ function storeToken(credentials, token) {
 
     console.log(JSON.stringify(juttle_config, null, 4));
 
-    console.log("If you already have a \"backends\" section, add the \"juttle-gmail-backend\" section under the existing \"backends\" section.");
+    console.log("If you already have a \"adapters\" section, add the \"juttle-gmail-adapter\" section under the existing \"adapters\" section.");
 }
 
 /**
