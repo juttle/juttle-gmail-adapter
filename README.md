@@ -1,6 +1,7 @@
 # Juttle Gmail Adapter
 
-Gmail adapter for juttle
+GMail adapter for the [Juttle data flow
+language](https://github.com/juttle/juttle).
 
 This uses the
 [nodejs API for google](https://www.npmjs.com/package/googleapis) to
@@ -9,17 +10,32 @@ read gmail messages. It also uses
 batched email fetches, something that the main google API does not
 currently support.
 
-# Installation / Setup
+## Examples
 
-Check out this repository and the juttle repository into a working directory.
+```juttle
+read gmail -from :5 days ago: -raw "to:me"
+   | reduce count() by from
+   | sort count -desc
+   | view table -title "Who sends me the most mail?";
+```
 
-Run `npm link` in each.
+```juttle
+read gmail -from :5 days ago: -to :1 day ago: -raw "to:me"
+   | batch -every :1h:
+   | reduce count()
+   | view timechart -title "When during the day do I get mail?"
+```
 
-Make sure the following is in your environment:
+## Installation / Setup
 
-`NODE_PATH=/usr/local/lib/node_modules`
+Like Juttle itself, the adapter is installed as a npm package. Both Juttle and
+the adapter need to be installed side-by-side:
 
-# Configuration
+```bash
+$ npm install juttle
+$ npm install juttle-gmail-adapter
+```
+## Configuration
 
 Configuration involves these steps:
 
@@ -27,7 +43,7 @@ Configuration involves these steps:
 2. Authorize a user using Oauth2 to use the application to access gmail.
 3. Add the appropriate configuration items to `.juttle/config.{js,json}`
 
-## Create application credentials
+### Create application credentials
 
 To create application credentials, follow the
 [nodejs quickstart instructions](https://developers.google.com/gmail/api/quickstart/nodejs). This
@@ -52,7 +68,7 @@ will result in a file on disk titled `client_secret.json` with this structure:
 
 You'll use this file in the next step.
 
-## Authorize a user using OAuth2
+### Authorize a user using OAuth2
 
 You need to create an oauth2 token that allows this program to read your email on your behalf.
 
@@ -63,7 +79,7 @@ This will provide a json config block to add to your `.juttle/config.{js,json}` 
 This will also use the gmail nodejs api to read the list of labels
 assocated with the authenticated user, to verify that the token was created successfully.
 
-## Add the appropriate configuration items to `.juttle/config.{js,json}`
+### Add the appropriate configuration items to `.juttle/config.{js,json}`
 
 `create_oauth_token.js` printed a configuration block like this:
 
@@ -117,11 +133,17 @@ Add the juttle-gmail-adapter section as a peer item below "adapters":
 }
 ```
 
-# Usage
+## Usage
 
-I've only used this for historical reads so far. -from and -to are
-honored. Currently the entire search expression is passed directly
-through to gmail as the
-[advanced search](https://support.google.com/mail/answer/7190?hl=en)
-expression.
+This adapter currently only supports historical reads.
+
+### Read Options
+
+Name | Type | Required | Description
+-----|------|----------|-------------
+`raw`  | string | no  | Use the following [advanced search](https://support.google.com/mail/answer/7190?hl=en) filter to select messages.
+`from` | moment | no | select messages after this time (inclusive)
+`to`   | moment | no | select messages before this time (exclusive)
+
+
 
