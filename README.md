@@ -1,6 +1,6 @@
 # Juttle Gmail Adapter
 
-GMail adapter for the [Juttle data flow
+Gmail adapter for the [Juttle data flow
 language](https://github.com/juttle/juttle).
 
 This uses the
@@ -26,7 +26,7 @@ read gmail -from :5 days ago: -to :1 day ago: -raw "to:me"
    | view timechart -title "When during the day do I get mail?"
 ```
 
-## Installation / Setup
+## Installation
 
 Like Juttle itself, the adapter is installed as a npm package. Both Juttle and
 the adapter need to be installed side-by-side:
@@ -41,7 +41,7 @@ Configuration involves these steps:
 
 1. Create application credentials that allow your code to access the google nodejs APIs.
 2. Authorize a user using Oauth2 to use the application to access gmail.
-3. Add the appropriate configuration items to `.juttle/config.{js,json}`
+3. Add the appropriate configuration items to `.juttle/config.js`
 
 ### Create application credentials
 
@@ -74,12 +74,12 @@ You need to create an oauth2 token that allows this program to read your email o
 
 To do this, run `node create_oauth_token.js` from the juttle-gmail-adapter directory.
 
-This will provide a json config block to add to your `.juttle/config.{js,json}` file.
+This will provide a json config block to add to your `.juttle/config.js` file.
 
 This will also use the gmail nodejs api to read the list of labels
 assocated with the authenticated user, to verify that the token was created successfully.
 
-### Add the appropriate configuration items to `.juttle/config.{js,json}`
+### Add the appropriate configuration items to `.juttle/config.js`
 
 `create_oauth_token.js` printed a configuration block like this:
 
@@ -112,7 +112,7 @@ assocated with the authenticated user, to verify that the token was created succ
 }
 ```
 
-Add this configuration to your `.juttle/config.{js,json}` file. If you
+Add this configuration to your `.juttle/config.js` file. If you
 have an existing "adapters" section, for example:
 
 ```
@@ -145,5 +145,7 @@ Name | Type | Required | Description
 `from` | moment | no | select messages after this time (inclusive)
 `to`   | moment | no | select messages before this time (exclusive)
 
+## Contributing
 
-
+Want to contribute? Awesome! Don’t hesitate to file an issue or open a pull
+request.
