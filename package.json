@@ -1,7 +1,7 @@
 {
   "name": "juttle-gmail-adapter",
   "version": "0.1.1",
-  "description": "Juttle adapter for GMail",
+  "description": "Juttle adapter for Gmail",
   "keywords": ["juttle", "adapter", "gmail"],
   "homepage": "https://github.com/juttle/juttle-gmail-adapter",
   "bugs": "https://github.com/juttle/juttle-gmail-adapter/issues",
