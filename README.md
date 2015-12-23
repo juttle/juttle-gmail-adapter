@@ -145,6 +145,10 @@ Name | Type | Required | Description
 `from` | moment | no | select messages after this time (inclusive)
 `to`   | moment | no | select messages before this time (exclusive)
 
+## Detailed Walkthough
+
+If you want to write your own adapter, look at the [detailed notes](./docs/adapter_impl_notes.md) on how the Gmail adapter interacts with the Juttle runtime/compiler to fetch messages and pass them as points to the juttle program.
+
 ## Contributing
 
 Want to contribute? Awesome! Don’t hesitate to file an issue or open a pull
