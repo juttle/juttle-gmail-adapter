@@ -135,8 +135,6 @@ Add the juttle-gmail-adapter section as a peer item below "adapters":
 
 ## Usage
 
-This adapter currently only supports historical reads.
-
 ### Read Options
 
 Name | Type | Required | Description
