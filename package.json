@@ -9,7 +9,10 @@
   "main": "index.js",
   "repository": "juttle/juttle-gmail-adapter",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "mocha",
+      "jshint": "jshint *.js lib/*.js test/*.js",
+      "style": "jscs *.js lib/*.js test/*.js",
+      "lint": "npm run jshint & npm run style"
   },
   "dependencies": {
       "batchelor": "^2.0.1",
@@ -21,6 +24,10 @@
   },
   "peerDependencies": {
       "juttle": "0.1.x"
+  },
+  "devDependencies": {
+      "chai": "^3.4.1",
+      "mocha": "^2.3.4"
   },
   "engines": {
     "node": ">=4.2.0",
