@@ -3,6 +3,7 @@ var juttle_test_utils = require('juttle/test/runtime/specs/juttle-test-utils');
 var Juttle = require('juttle/lib/runtime').Juttle;
 var GmailAdapter = require('../');
 var check_juttle = juttle_test_utils.check_juttle;
+var expect = require('chai').expect;
 
 describe('gmail adapter', function() {
 
@@ -30,6 +31,10 @@ describe('gmail adapter', function() {
         this.timeout(60000);
         return check_juttle({
             program: 'read gmail -from :6 months ago: | reduce count() by from | sort count -desc | view table -title "Who sends me the most mail?"'
+        })
+        .then(function(result) {
+            expect(result.errors).to.have.length(0);
+            expect(result.warnings).to.have.length(0);
         });
     });
 });
