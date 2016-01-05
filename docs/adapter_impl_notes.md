@@ -12,9 +12,11 @@ More sophisticated adapters work together with the juttle optimizer to push aggr
 
 ## Live vs Historical
 
-Juttle's ``read`` command specifies a timerange based on the values of the ``-from`` and ``-to`` options. When the ``-to`` option is less than the current time, an adapter need only fetch the matching set of messages for the provided timerange. Such a program is called *historical*. When the ``-to`` option is greater than the current time, the adapter must also watch for new messages and pass them to the program. Such a problem is called *live*. A program can be both live and historical, with a ``-from`` in the past and a ``-to`` in the future. In that case, the adapter must fetch both old and newly-arriving messages.
+Juttle's ``read`` command specifies a timerange based on the values of the ``-from``, ``-to``, and ``-last`` options. When the timerange specified by ``-from/-to/-last`` is in the past, an adapter need only fetch the matching set of messages for the provided timerange. Such a program is called *historical*. When a part of the timerange is in the future, the adapter must also watch for new messages and pass them to the program. Such a problem is called *live*. A program can be both live and historical, with a ``-from`` in the past and a ``-to`` in the future. In that case, the adapter must fetch both old and newly-arriving messages.
 
-Although Gmail messages have a natural time values (the time the message was received), not all backends do. If your backend does not have meaningful time values, but was given a timerange in the ``read`` proc, your adapter should return an error.
+Although Gmail messages have natural time values (the time the message was received), not all backends do. If your backend does not have meaningful time values, but was given a timerange in the ``read`` proc, your adapter should return an error.
+
+For more information on Time Range Semantics, see [this page](https://github.com/juttle/juttle/wiki/Time-Range-Semantics).
 
 ## Fields and Searching
 

@@ -16,21 +16,65 @@ describe('gmail adapter', function() {
         // "juttle-gmail-adapter" object and set it in the environment
         // as JUTTLE_GMAIL_CONFIG.
 
-        if (! _.has(process.env, "JUTTLE_GMAIL_CONFIG")) {
+        if (! _.has(process.env, "JUTTLE_GMAIL_CONFIG") ||
+            process.env.JUTTLE_GMAIL_CONFIG === '') {
             throw new Error("To run this test, you must provide the adapter config via the environment as JUTTLE_GMAIL_CONFIG.");
         }
 
-        var config_text = process.env.JUTTLE_GMAIL_CONFIG;
-        var config = JSON.parse(config_text);
+        var config = JSON.parse(process.env.JUTTLE_GMAIL_CONFIG);
         var adapter = GmailAdapter(config, Juttle);
 
         Juttle.adapters.register(adapter.name, adapter);
     });
 
-    it('basic email reading', function() {
+    describe(' properly returns errors for invalid timeranges like', function() {
+
+        // Waiting on a juttle release that incorporates https://github.com/juttle/juttle/pull/108
+        it.skip(' no -from/-to/-last specified', function() {
+            return check_juttle({
+                program: 'read gmail | view table'
+            }).catch(function(err) {
+                expect(err.code).to.equal('RT-MISSING-TIMERANGE-ERROR');
+            });
+        });
+
+        it(' -from/-to combined with -last', function() {
+            return check_juttle({
+                program: 'read gmail -from :2h ago: -to :1h ago: -last :1h: | view table'
+            }).catch(function(err) {
+                expect(err.code).to.equal('RT-LAST-FROM-TO-ERROR');
+            });
+        });
+
+        it(' -from combined with -last', function() {
+            return check_juttle({
+                program: 'read gmail -from :2h ago: -last :1h: | view table'
+            }).catch(function(err) {
+                expect(err.code).to.equal('RT-LAST-FROM-TO-ERROR');
+            });
+        });
+
+        it(' -to combined with -last', function() {
+            return check_juttle({
+                program: 'read gmail -to :1h ago: -last :1h: | view table'
+            }).catch(function(err) {
+                expect(err.code).to.equal('RT-LAST-FROM-TO-ERROR');
+            });
+        });
+
+        it(' -from later than -to', function() {
+            return check_juttle({
+                program: 'read gmail -from :1h ago: -to :2h ago: | view table'
+            }).catch(function(err) {
+                expect(err.code).to.equal('RT-TO-FROM-MOMENT-ERROR');
+            });
+        });
+    });
+
+    it(' can read basic emails', function() {
         this.timeout(60000);
         return check_juttle({
-            program: 'read gmail -from :6 months ago: | reduce count() by from | sort count -desc | view table -title "Who sends me the most mail?"'
+            program: 'read gmail -from :1 months ago: | reduce count() by from | sort count -desc | view table -title "Who sends me the most mail?"'
         })
         .then(function(result) {
             expect(result.errors).to.have.length(0);
