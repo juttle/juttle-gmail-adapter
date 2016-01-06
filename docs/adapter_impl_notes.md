@@ -53,7 +53,7 @@ The following comparison operators are supported:
 * ~, =~ (wildcard operator). This is because Gmail's header searches match on substrings and do not perform exact matches.
 * !~ (wildcard negation).
 
-These header matches are pushed into the Gmail API search expression. Logical operators such as ``AND``, ``OR``, and ``NOT`` join terms in the expression, and parentheses can be used for logical grouping and nesting.
+These header matches are pushed into the Gmail API search expression. Logical operators such as ``AND``, ``OR``, and ``NOT`` join terms in the expression.
 
 Full-text search is supported by the Gmail API, so any full-text searches are passed through to the search expression.
 
@@ -133,7 +133,7 @@ Code is one of the values in [juttle-error-strings-en-US.json](https://github.co
 
 ## The ``filter_ast`` expression
 
-The filter expression is parsed by the juttle compiler and provided to the adapter as params.filter_ast, which is the output of the juttle compiler. The best way to parse a filter expression is by using the [ASTVisitor class](https://github.com/juttle/juttle/blob/master/lib/compiler/ast-visitor.js) to step through the ast with callbacks for the terms of the filter expression to build up a backend-specific search expression. The gmail adapter does this in [filter-gmail-compiler.js](../lib/filter-gmail-compiler.js).
+The filter expression is parsed by the juttle compiler and provided to the adapter as params.filter_ast, which is the output of the juttle compiler. The best way to parse a filter expression is by using the [ASTVisitor class](https://github.com/juttle/juttle/blob/master/lib/compiler/ast-visitor.js) to step through the ast with callbacks for the terms of the filter expression.
 
 ## Constructing Points
 
