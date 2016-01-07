@@ -29,12 +29,11 @@ describe('gmail adapter', function() {
 
     describe(' properly returns errors for invalid timeranges like', function() {
 
-        // Waiting on a juttle release that incorporates https://github.com/juttle/juttle/pull/108
-        it.skip(' no -from/-to/-last specified', function() {
+        it(' no -from/-to/-last specified', function() {
             return check_juttle({
                 program: 'read gmail | view table'
             }).catch(function(err) {
-                expect(err.code).to.equal('RT-MISSING-TIMERANGE-ERROR');
+                expect(err.code).to.equal('RT-MISSING-TIME-RANGE-ERROR');
             });
         });
 
