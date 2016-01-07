@@ -1,37 +1,40 @@
 {
   "name": "juttle-gmail-adapter",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Juttle adapter for Gmail",
-  "keywords": ["juttle", "adapter", "gmail"],
+  "keywords": [
+    "juttle",
+    "adapter",
+    "gmail"
+  ],
   "homepage": "https://github.com/juttle/juttle-gmail-adapter",
   "bugs": "https://github.com/juttle/juttle-gmail-adapter/issues",
   "license": "Apache-2.0",
   "main": "index.js",
   "repository": "juttle/juttle-gmail-adapter",
   "scripts": {
-      "test": "mocha",
-      "jshint": "jshint *.js lib/*.js test/*.js",
-      "style": "jscs *.js lib/*.js test/*.js",
-      "lint": "npm run jshint & npm run style"
+    "test": "mocha",
+    "jshint": "jshint *.js lib/*.js test/*.js",
+    "style": "jscs *.js lib/*.js test/*.js",
+    "lint": "npm run jshint & npm run style"
   },
   "dependencies": {
-      "batchelor": "^2.0.1",
-      "bluebird": "^3.0.5",
-      "googleapis": "^2.1.6",
-      "google-auth-library": "^0.9.7",
-      "moment": "^2.10.6",
-      "underscore": "^1.8.3"
+    "batchelor": "^2.0.1",
+    "bluebird": "^3.0.5",
+    "googleapis": "^2.1.6",
+    "google-auth-library": "^0.9.7",
+    "moment": "^2.10.6",
+    "underscore": "^1.8.3"
   },
   "peerDependencies": {
-      "juttle": "0.2.x"
+    "juttle": "0.2.x"
   },
   "devDependencies": {
-      "chai": "^3.4.1",
-      "mocha": "^2.3.4"
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
   },
   "engines": {
     "node": ">=4.2.0",
     "npm": ">=2.14.7"
   }
 }
-
