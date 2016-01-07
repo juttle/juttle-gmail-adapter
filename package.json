@@ -16,7 +16,7 @@
     "test": "mocha",
     "jshint": "jshint *.js lib/*.js test/*.js",
     "style": "jscs *.js lib/*.js test/*.js",
-    "lint": "npm run jshint & npm run style"
+    "lint": "npm run jshint && npm run style"
   },
   "dependencies": {
     "batchelor": "^2.0.1",
