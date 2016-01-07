@@ -1,1 +1,1 @@
-module.exports = require('./lib/gmail-adapter');
+module.exports = require('./lib/');
