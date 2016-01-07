@@ -5,7 +5,7 @@ var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
 
-var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
+var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly', 'https://www.googleapis.com/auth/gmail.send'];
 var TOKEN_PATH = 'gmail-nodejs-quickstart.json';
 
 // Load client secrets from a local file.

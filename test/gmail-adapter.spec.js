@@ -80,6 +80,28 @@ describe('gmail adapter', function() {
             expect(result.warnings).to.have.length(0);
         });
     });
+
+    it(' can write basic emails', function() {
+        this.timeout(60000);
+        return check_juttle({
+            program: 'emit -from :0: -limit 10 | write gmail'
+        })
+        .then(function(result) {
+            expect(result.errors).to.have.length(0);
+            expect(result.warnings).to.have.length(0);
+        });
+    });
+
+    it(' can write basic emails for a program containing multiple branches', function() {
+        this.timeout(60000);
+        return check_juttle({
+            program: '(emit -from :0: -limit 10; emit -from :1: -limit 5) | write gmail'
+        })
+        .then(function(result) {
+            expect(result.errors).to.have.length(0);
+            expect(result.warnings).to.have.length(0);
+        });
+    });
 });
 
 
