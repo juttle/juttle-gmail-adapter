@@ -5,7 +5,7 @@ language](https://github.com/juttle/juttle).
 
 This uses the
 [nodejs API for google](https://www.npmjs.com/package/googleapis) to
-read gmail messages. It also uses
+read and write gmail messages. It also uses
 [Batchelor](https://www.npmjs.com/package/batchelor) to perform
 batched email fetches, something that the main google API does not
 currently support.
@@ -24,6 +24,13 @@ read gmail -from :5 days ago: -to :1 day ago: -raw "to:me"
    | batch -every :1h:
    | reduce count()
    | view timechart -title "When during the day do I get mail?"
+```
+
+```juttle
+read gmail -from :5 days ago: -to :1 day ago: -raw "to:me"
+   | batch -every :1h:
+   | reduce count()
+   | write gmail -subject "When during the day do I get mail?"
 ```
 
 ## Installation
@@ -142,6 +149,15 @@ Name | Type | Required | Description
 `raw`  | string | no  | Use the following [advanced search](https://support.google.com/mail/answer/7190?hl=en) filter to select messages.
 `from` | moment | no | select messages after this time (inclusive)
 `to`   | moment | no | select messages before this time (exclusive)
+
+### Write Options
+
+Name | Type | Required | Description
+-----|------|----------|-------------
+`to` | string | no     | the to: header of the message. If not specified, defaults to the email address of the authenticated user.
+`subject` | string | no | the subject of the message.  Default is 'Juttle Program Output'. If output is split, " (part <part-num>)" is appended to subject.
+`limit` | number | no  | split output into batches of <limit> points. By default all points are buffered in memory until the program has completed.
+`jsonOnly` | boolean | no | if true, only include a raw JSON mime part in the email. The default (false) is to attach a plain/text as well as application/json part.
 
 ## Detailed Walkthough
 
