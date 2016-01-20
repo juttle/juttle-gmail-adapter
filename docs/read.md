@@ -63,10 +63,8 @@ initialize: function(options, params, pname, location, program, juttle) {...}
 
 * ``options``: The options provided to the ``read gmail`` proc in the juttle program. ``-from``, ``-to``, etc. are all examples of options.
 * ``params``: The filter expression is passed as ``params.filter_ast``.
-* ``pname``: XXX/mstemm is this needed?
 * ``location``: The location in the juttle program where this proc is located. It has been saved to ``this.location`` by the parent class.
 * ``program``: A reference to the associated ``Program`` object.
-* ``juttle``: XXX/mstemm is this needed?
 
 ```
 start: function() {...}
