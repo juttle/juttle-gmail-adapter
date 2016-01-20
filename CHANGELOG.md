@@ -1,6 +1,17 @@
 # Change Log
 This file documents all notable changes to juttle-gmail-adapter. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.4.0
+Released 2016-01-20
+
+### Major Changes
+
+### Minor Changes
+- Update to handle changes in juttle 0.3.0.
+
+### Bug Fixes
+- Eliminate unnecessary emit_eof call for write adapter [juttle/juttle#131]
+
 ## 0.3.0
 Released 2016-01-08
 
