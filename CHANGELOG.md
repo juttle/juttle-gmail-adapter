@@ -1,6 +1,26 @@
 # Change Log
 This file documents all notable changes to juttle-gmail-adapter. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.4.2
+Released 2016-01-21
+
+### Major Changes
+
+### Minor Changes
+ - Minor documentation fixes.
+
+### Bug Fixes
+
+## 0.4.1
+Released 2016-01-20
+
+### Major Changes
+
+### Minor Changes
+ - Fix minor problem with juttle dependency in package.json.
+
+### Bug Fixes
+
 ## 0.4.0
 Released 2016-01-20
 
