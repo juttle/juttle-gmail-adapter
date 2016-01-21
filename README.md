@@ -93,7 +93,7 @@ assocated with the authenticated user, to verify that the token was created succ
 ```
 {
   "adapters": {
-    "juttle-gmail-adapter": {
+    "gmail": {
       "client-credentials": {
         "installed": {
           "client_id": "--your-client-id--",
@@ -125,17 +125,17 @@ have an existing "adapters" section, for example:
 ```
 {
   "adapters": {
-    "juttle-twitter-adapter": {...}
+    "twitter": {...}
   }
 }
 ```
 
-Add the juttle-gmail-adapter section as a peer item below "adapters":
+Add the gmail section as a peer item below "adapters":
 ```
 {
   "adapters": {
-    "juttle-twitter-adapter": {...},
-    "juttle-gmail-adapter": {...}
+    "twitter": {...},
+    "gmail": {...}
   }
 }
 ```
