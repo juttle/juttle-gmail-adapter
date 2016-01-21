@@ -25,25 +25,7 @@ Released 2016-01-20
 Released 2016-01-20
 
 ### Major Changes
- - IMPORTANT CHANGE: As a part of the upgrade to juttle 0.3.0, the format for ``juttle-config.js`` files has changed. The configuration for the gmail adapter is now associated with the property ``gmail`` and not ``juttle-gmail-adapter``. So configuration files containing:
-
-```
-{
-    "adapters": {
-        "juttle-gmail-adapter": {...}
-    }
-}
-```
-
-Should change to:
-
-```
-{
-    "adapters": {
-        "gmail": {...}
-    }
-}
-```
+ - NOTICE: As part of the update to juttle 0.3.0, the configuration syntax for adapters changed from the name of the module ("juttle-gmail-adapter") to the type of the adapter ("gmail").
 
 ### Minor Changes
 - Update to handle changes in juttle 0.3.0.
