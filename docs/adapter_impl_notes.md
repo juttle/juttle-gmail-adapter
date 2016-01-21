@@ -55,10 +55,10 @@ The configuration is saved in the juttle [configuration file](https://github.com
 ```
 {
     "adapters": {
-        "juttle-twitter-adapter": {...},
-        "juttle-gmail-adapter": {...}
+        "twitter": {...},
+        "gmail": {...}
     }
 }
 ```
-The object below ``juttle-gmail-adapter`` will be passed to the module's main function.
+The object below ``gmail`` will be passed to the module's main function.
 
