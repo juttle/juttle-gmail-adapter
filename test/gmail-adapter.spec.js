@@ -4,25 +4,34 @@ var Juttle = require('juttle/lib/runtime').Juttle;
 var GmailAdapter = require('../');
 var check_juttle = juttle_test_utils.check_juttle;
 var expect = require('chai').expect;
+var read_config = require('juttle/lib/config/read-config');
 
 describe('gmail adapter', function() {
 
     before(function() {
 
-        // The config is provided via the environment to avoid putting
-        // sensitive information like ids/auth tokens in source
-        // files. If you want to run this test using your own setup,
-        // json stringify the portion of your config under the
-        // "juttle-gmail-adapter" object and set it in the environment
-        // as JUTTLE_GMAIL_CONFIG.
+        // Try to read from the config file first. If not present,
+        // look in the environment variable JUTTLE_GMAIL_CONFIG. In
+        // TravisCI, the config is provided via the environment to
+        // avoid putting sensitive information like ids/auth tokens in
+        // source files.
 
-        if (! _.has(process.env, "JUTTLE_GMAIL_CONFIG") ||
-            process.env.JUTTLE_GMAIL_CONFIG === '') {
-            throw new Error("To run this test, you must provide the adapter config via the environment as JUTTLE_GMAIL_CONFIG.");
+        var config = read_config();
+
+        if (! _.has(config, "adapters")) {
+            if (! _.has(process.env, "JUTTLE_GMAIL_CONFIG") ||
+                process.env.JUTTLE_GMAIL_CONFIG === '') {
+                throw new Error("To run this test, you must provide the adapter config via the environment as JUTTLE_GMAIL_CONFIG.");
+            }
+            var gmail_config = JSON.parse(process.env.JUTTLE_GMAIL_CONFIG);
+            config = {
+                adapters: {
+                    gmail: gmail_config
+                }
+            };
         }
 
-        var config = JSON.parse(process.env.JUTTLE_GMAIL_CONFIG);
-        var adapter = GmailAdapter(config, Juttle);
+        var adapter = GmailAdapter(config.adapters.gmail, Juttle);
 
         Juttle.adapters.register(adapter.name, adapter);
     });
