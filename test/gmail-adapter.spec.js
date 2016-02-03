@@ -17,21 +17,21 @@ describe('gmail adapter', function() {
         // source files.
 
         var config = read_config();
+        var gmail_config;
 
-        if (! _.has(config, "adapters")) {
+        if (_.has(config, "adapters") &&
+            _.has(config.adapters, "gmail")) {
+            gmail_config = config.adapters.gmail;
+        } else {
+
             if (! _.has(process.env, "JUTTLE_GMAIL_CONFIG") ||
                 process.env.JUTTLE_GMAIL_CONFIG === '') {
                 throw new Error("To run this test, you must provide the adapter config via the environment as JUTTLE_GMAIL_CONFIG.");
             }
-            var gmail_config = JSON.parse(process.env.JUTTLE_GMAIL_CONFIG);
-            config = {
-                adapters: {
-                    gmail: gmail_config
-                }
-            };
+            gmail_config = JSON.parse(process.env.JUTTLE_GMAIL_CONFIG);
         }
 
-        var adapter = GmailAdapter(config.adapters.gmail, Juttle);
+        var adapter = GmailAdapter(gmail_config, Juttle);
 
         Juttle.adapters.register(adapter.name, adapter);
     });
