@@ -52,9 +52,12 @@ Configuration involves these steps:
 
 ### Create application credentials
 
-To create application credentials, follow the
-[nodejs quickstart instructions](https://developers.google.com/gmail/api/quickstart/nodejs). This
-will result in a file on disk titled `client_secret.json` with this structure:
+To create application credentials, follow the instructions under
+**Step 1: Turn on the Gmail API** on the
+[nodejs quickstart instructions page](https://developers.google.com/gmail/api/quickstart/nodejs). (Steps
+2-4 are not necessary--you only need step 1 to create the client api
+credentials). This will result in a file on disk titled
+`client_secret.json` with this structure:
 
 ```
 {
