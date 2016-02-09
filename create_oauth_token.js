@@ -9,7 +9,7 @@ var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly', 'https://www.goo
 var TOKEN_PATH = 'gmail-nodejs-quickstart.json';
 
 // Load client secrets from a local file.
-fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+fs.readFile(process.argv[2], function processClientSecrets(err, content) {
     if (err) {
         console.log('Error loading client secret file: ' + err);
         return;
