@@ -9,7 +9,7 @@ var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly', 'https://www.goo
 var TOKEN_PATH = 'gmail-nodejs-quickstart.json';
 
 // Load client secrets from a local file.
-fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+fs.readFile(process.argv[2], function processClientSecrets(err, content) {
     if (err) {
         console.log('Error loading client secret file: ' + err);
         return;
@@ -90,7 +90,7 @@ function storeToken(credentials, token) {
     console.log('Add the following json block to your .juttle/config.{js,json} file:');
     var juttle_config = {
         adapters: {
-            "juttle-gmail-adapter": {
+            "gmail": {
                 "client-credentials": credentials,
                 "oauth2-token": token,
             }
@@ -99,7 +99,7 @@ function storeToken(credentials, token) {
 
     console.log(JSON.stringify(juttle_config, null, 4));
 
-    console.log("If you already have a \"adapters\" section, add the \"juttle-gmail-adapter\" section under the existing \"adapters\" section.");
+    console.log("If you already have a \"adapters\" section, add the \"gmail\" section under the existing \"adapters\" section.");
 }
 
 /**

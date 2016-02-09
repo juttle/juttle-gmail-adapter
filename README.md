@@ -52,9 +52,12 @@ Configuration involves these steps:
 
 ### Create application credentials
 
-To create application credentials, follow the
-[nodejs quickstart instructions](https://developers.google.com/gmail/api/quickstart/nodejs). This
-will result in a file on disk titled `client_secret.json` with this structure:
+To create application credentials, follow the instructions under
+**Step 1: Turn on the Gmail API** on the
+[nodejs quickstart instructions page](https://developers.google.com/gmail/api/quickstart/nodejs). (Steps
+2-4 are not necessary--you only need step 1 to create the client api
+credentials). This will result in a file on disk titled
+`client_secret.json` with this structure:
 
 ```
 {
@@ -79,7 +82,11 @@ You'll use this file in the next step.
 
 You need to create an oauth2 token that allows this program to read your email on your behalf.
 
-To do this, run `node create_oauth_token.js` from the juttle-gmail-adapter directory.
+To do this, run `node create_oauth_token.js
+<path-to-client_secret.json>`. `create_oauth_token.js` is in the
+top-level directory where juttle-gmail-adapter is installed
+(i.e. wherever you ran `git clone` for github, under
+`node_modules/juttle-gmail-adapter` for npm).
 
 This will provide a json config block to add to your `.juttle/config.js` file.
 
