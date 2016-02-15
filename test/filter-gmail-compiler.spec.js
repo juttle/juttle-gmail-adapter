@@ -36,15 +36,6 @@ describe('gmail filter', function() {
 
     describe(' properly returns errors for invalid filtering expressions like ', function() {
 
-        var invalid_unary_operators = ['!', '-'];
-
-        invalid_unary_operators.forEach(function(op) {
-            it('using unary operator ' + op + ' in field specifications', function() {
-                verify_compile_error("subject ~ " + op + " \"foo\"",
-                                     "operator " + op);
-            });
-        });
-
         var invalid_operators = ['==', '!=', '<', '<=', '>', '>=', 'in'];
         invalid_operators.forEach(function(op) {
             it('using ' + op + ' in field comparisons', function() {
@@ -56,11 +47,6 @@ describe('gmail filter', function() {
         it('matching on unsupported headers', function() {
             verify_compile_error("not_a_header ~ \"foo\"",
                                  "searching on header not_a_header");
-        });
-
-        it('not a filter expression or string', function() {
-            verify_compile_error("+ 1",
-                                 "filter term UnaryExpression");
         });
     });
 
