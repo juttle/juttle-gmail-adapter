@@ -24,6 +24,7 @@ withAdapterAPI(() => {
         let compiler = new FilterGmailCompiler();
         try {
             compiler.compile(ast);
+            throw new Error('Compile succeeded when it should have failed');
         } catch (e) {
             expect(e).to.be.instanceOf(JuttleErrors.CompileError);
             expect(e.code).to.equal('FILTER-FEATURE-NOT-SUPPORTED');

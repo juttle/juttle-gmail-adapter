@@ -40,17 +40,11 @@ describe('gmail adapter', function() {
 
     describe(' properly returns errors for invalid timeranges like', function() {
 
-        it(' no -from/-to/-last specified', function() {
-            return check_juttle({
-                program: 'read gmail | view table'
-            }).catch(function(err) {
-                expect(err.code).to.equal('MISSING-TIME-RANGE-ERROR');
-            });
-        });
-
         it(' -from/-to combined with -last', function() {
             return check_juttle({
                 program: 'read gmail -from :2h ago: -to :1h ago: -last :1h: | view table'
+            }).then(() => {
+                throw new Error('Program ran when it should have returned an error');
             }).catch(function(err) {
                 expect(err.code).to.equal('LAST-FROM-TO-ERROR');
             });
@@ -59,6 +53,8 @@ describe('gmail adapter', function() {
         it(' -from combined with -last', function() {
             return check_juttle({
                 program: 'read gmail -from :2h ago: -last :1h: | view table'
+            }).then(() => {
+                throw new Error('Program ran when it should have returned an error');
             }).catch(function(err) {
                 expect(err.code).to.equal('LAST-FROM-TO-ERROR');
             });
@@ -67,6 +63,8 @@ describe('gmail adapter', function() {
         it(' -to combined with -last', function() {
             return check_juttle({
                 program: 'read gmail -to :1h ago: -last :1h: | view table'
+            }).then(() => {
+                throw new Error('Program ran when it should have returned an error');
             }).catch(function(err) {
                 expect(err.code).to.equal('LAST-FROM-TO-ERROR');
             });
@@ -75,6 +73,8 @@ describe('gmail adapter', function() {
         it(' -from later than -to', function() {
             return check_juttle({
                 program: 'read gmail -from :1h ago: -to :2h ago: | view table'
+            }).then(() => {
+                throw new Error('Program ran when it should have returned an error');
             }).catch(function(err) {
                 expect(err.code).to.equal('TO-BEFORE-FROM-MOMENT-ERROR');
             });
