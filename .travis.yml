@@ -1,27 +1,11 @@
 language: node_js
 
-cache:
-  directories:
-    - node_modules
-
-addons:
-  apt:
-    sources:
-        - ubuntu-toolchain-r-test
-    packages:
-        - g++-4.8
-
-before_install:
-    - export CXX="g++-4.8"
-    - npm install juttle@^0.3.x
-
 node_js:
     - '4.2'
     - '5.0'
 
 before_script:
-    - npm install -g jshint
-    - npm install -g jscs
+    - npm install juttle@^0.5.0
 
 script:
     - npm run -s lint
