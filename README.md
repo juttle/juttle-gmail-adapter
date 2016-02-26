@@ -156,6 +156,8 @@ Name | Type | Required | Description
 `raw`  | string | no  | Use the following [advanced search](https://support.google.com/mail/answer/7190?hl=en) filter to select messages.
 `from` | moment | no | select messages after this time (inclusive)
 `to`   | moment | no | select messages before this time (exclusive)
+`last` | duration | no | shorthand for -from :now: - <last> -to :now:
+`lag`| duration| no | Controls how long to wait behind real time to fetch datapoints.
 
 ### Write Options
 
