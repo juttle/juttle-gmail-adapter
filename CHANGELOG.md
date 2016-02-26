@@ -1,6 +1,20 @@
 # Change Log
 This file documents all notable changes to juttle-gmail-adapter. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.5.0
+Released 2016-02-26
+
+### Major Changes
+- Update code and READMEs to reflect changes in juttle 0.5.0, including the concept of adapter versioning. This release is compatible with adapter version 0.5.0. [[#31](https://github.com/juttle/juttle-gmail-adapter/pull/31)]
+
+### Minor Changes
+- Update to use ES6 features, including classes, fat arrow for this scoping, let instead of var, etc. [[#31](https://github.com/juttle/juttle-gmail-adapter/pull/31)]
+- Unit tests can now run using a local juttle config file in addition to a config provided via the environment. [[#27](https://github.com/juttle/juttle-gmail-adapter/pull/27)]
+- Small changes to the setup instructions. [[#28](https://github.com/juttle/juttle-gmail-adapter/pull/28)]
+
+### Bug Fixes
+- Some unit tests were falsely passing when they should have been failing. Updated and fixed any problems. [[#31](https://github.com/juttle/juttle-gmail-adapter/pull/31)]
+
 ## 0.4.2
 Released 2016-01-21
 
