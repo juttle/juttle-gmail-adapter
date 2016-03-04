@@ -10,7 +10,7 @@
   "homepage": "https://github.com/juttle/juttle-gmail-adapter",
   "bugs": "https://github.com/juttle/juttle-gmail-adapter/issues",
   "license": "Apache-2.0",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "juttle/juttle-gmail-adapter",
   "scripts": {
     "test": "gulp test",
