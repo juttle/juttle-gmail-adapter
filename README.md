@@ -42,6 +42,13 @@ the adapter need to be installed side-by-side:
 $ npm install juttle
 $ npm install juttle-gmail-adapter
 ```
+
+## Ecosystem
+
+Here's how the juttle-gmail-adapter module fits into the overall [Juttle Ecosystem](https://github.com/juttle/juttle/blob/master/docs/juttle_ecosystem.md):
+
+[![Juttle Ecosystem](https://github.com/juttle/juttle/raw/master/docs/images/JuttleEcosystemDiagram.png)](https://github.com/juttle/juttle/blob/master/docs/juttle_ecosystem.md)
+
 ## Configuration
 
 Configuration involves these steps:
