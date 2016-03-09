@@ -1,6 +1,16 @@
 # Change Log
 This file documents all notable changes to juttle-gmail-adapter. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.5.1
+Released 2016-03-09
+
+### Minor Changes
+- Reorganize code layout to more closely match reference version in [juttle-adapter-template](https://github.com/juttle/juttle-adapter-template) [[#36](https://github.com/juttle/juttle-gmail-adapter/pull/36)]
+- Added code coverage tests [[#29](https://github.com/juttle/juttle-gmail-adapter/issues/29)]
+- Minor changes to filter expression parsing [[#33](https://github.com/juttle/juttle-gmail-adapter/pull/33)]
+- Add an ecosystem image to the top level README that shows where the adapter fits into the overall ecosystem. [[#37](https://github.com/juttle/juttle-gmail-adapter/pull/37)]
+- Update adapter walkthrough to rely on the more [general version](https://github.com/juttle/juttle/blob/master/docs/adapters/adapter_api.md) for overall discussion. This walkthrough describes gmail-specific features. [[#35](https://github.com/juttle/juttle-gmail-adapter/pull/35)]
+
 ## 0.5.0
 Released 2016-02-26
 
