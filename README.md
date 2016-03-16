@@ -33,6 +33,8 @@ read gmail -from :5 days ago: -to :1 day ago: -raw "to:me"
    | write gmail -subject "When during the day do I get mail?"
 ```
 
+An end-to-end example is described [here](https://github.com/juttle/juttle-engine/tree/master/examples/gmail) and deployed to the demo system [demo.juttle.io](http://demo.juttle.io/?path=/examples/gmail/index.juttle).
+
 ## Installation
 
 Like Juttle itself, the adapter is installed as a npm package. Both Juttle and
