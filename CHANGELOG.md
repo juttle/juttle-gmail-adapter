@@ -1,6 +1,12 @@
 # Change Log
 This file documents all notable changes to juttle-gmail-adapter. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.6.0
+Released 2016-03-23
+
+### Minor Changes
+- Update to reflect changes in juttle 0.7.0. This release is compatible with adapter version 0.7.0. [[#40](https://github.com/juttle/juttle-gmail-adapter/pull/40)].
+
 ## 0.5.1
 Released 2016-03-09
 
